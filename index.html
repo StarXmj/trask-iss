@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <title>Document</title>
+    <style>
+        #map {
+            margin: 0 auto;
+            height: 500px;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="https://isstracker.spaceflight.esa.int/" width="625" height="350" frameborder="0" scrolling="no" allowfullscreen></iframe>
+    <iframe width="480" height="270" src="https://ustream.tv/embed/9408562" allow="autoplay" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+    <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+    <div class="log"></div>
+
+    <div id="map"></div>
+
+
+</body>
+
+<script>
+    var map = L.map('map', {
+        minZoom: 1.5,
+        maxZoom: 20,
+    });
+
+
+    map.setView([0, 0], 1);
+
+    L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+    }).addTo(map);
+
+
+
+
+
+
+    var position = [];
+
+    function load() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://api.open-notify.org/iss-now.json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                var reponse = JSON.parse(xhr.responseText);
+
+                var logElem = document.querySelector(".log");
+                logElem.innerHTML = reponse.iss_position.latitude + "/ " + reponse.iss_position.longitude + "/";
+
+
+
+                position.push([reponse.iss_position.latitude, reponse.iss_position.longitude])
+
+                var polyline = L.polyline(position, {
+
+                    weight: 10,
+
+                }).addTo(map);
+
+
+
+
+
+            }
+
+        }
+        xhr.send();
+    };
+    setInterval(load, 500);
+</script>
+
+
+</html>
