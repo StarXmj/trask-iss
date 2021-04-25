@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <title>Document</title>
     <style>
         #map {
@@ -29,55 +30,40 @@
 </body>
 
 <script>
-    var map = L.map('map', {
-        minZoom: 1.5,
-        maxZoom: 20,
-    });
+    var map = L.map('map').setView([0, 0], 2);
 
 
-    map.setView([0, 0], 1);
+
+    function moveISS() {
+        $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function(data) {
+            var lat = data['iss_position']['latitude'];
+            var lon = data['iss_position']['longitude'];
+
+            // See leaflet docs for setting up icons and map layers
+            // The update to the map is done here:
+
+
+            iss.setLatLng([lat, lon]);
+            isscirc.setLatLng([lat, lon]);
+
+        });
+        setTimeout(moveISS, 500);
+    }
 
     L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
-        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        maxZoom: 10,
     }).addTo(map);
 
+    var iss = L.marker([0, 0]).addTo(map);
+    var isscirc = L.circle([0, 0], 2200e3, {
+        color: "#c22",
+        opacity: 0.3,
+        weight: 1,
+        fillColor: "#c22",
+        fillOpacity: 0.1
+    }).addTo(map);
 
-
-
-
-
-    var position = [];
-
-    function load() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://api.open-notify.org/iss-now.json');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                var reponse = JSON.parse(xhr.responseText);
-
-                var logElem = document.querySelector(".log");
-                logElem.innerHTML = reponse.iss_position.latitude + "/ " + reponse.iss_position.longitude + "/";
-
-
-
-                position.push([reponse.iss_position.latitude, reponse.iss_position.longitude])
-
-                var polyline = L.polyline(position, {
-
-                    weight: 10,
-
-                }).addTo(map);
-
-
-
-
-
-            }
-
-        }
-        xhr.send();
-    };
-    setInterval(load, 500);
+    moveISS();
 </script>
 
 

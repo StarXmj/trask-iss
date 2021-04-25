@@ -4,6 +4,8 @@
 <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js">
+    </script>
 
     <style>
         #map {
@@ -18,11 +20,40 @@
     <div id="map"></div>
 
     <script>
-        var map = L.map('map').setView([0, 0], 1);
+        var map = L.map('map').setView([0, 0], 2);
+
+
+
+        function moveISS() {
+            $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function(data) {
+                var lat = data['iss_position']['latitude'];
+                var lon = data['iss_position']['longitude'];
+
+                // See leaflet docs for setting up icons and map layers
+                // The update to the map is done here:
+
+
+                iss.setLatLng([lat, lon]);
+                isscirc.setLatLng([lat, lon]);
+
+            });
+            setTimeout(moveISS, 500);
+        }
 
         L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+            maxZoom: 10,
         }).addTo(map);
+
+        var iss = L.marker([0, 0]).addTo(map);
+        var isscirc = L.circle([0, 0], 2200e3, {
+            color: "#c22",
+            opacity: 0.3,
+            weight: 1,
+            fillColor: "#c22",
+            fillOpacity: 0.1
+        }).addTo(map);
+
+        moveISS();
     </script>
 
 </body>
