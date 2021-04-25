@@ -38,11 +38,25 @@
         $.getJSON('https://api.wheretheiss.at/v1/satellites/25544', function(data) {
             var lat = data['latitude'];
             var lon = data['longitude'];
+            var al = data['altitude'];
+            var velocity = data['velocity']
+            var units = data['units'];
+
 
             // See leaflet docs for setting up icons and map layers
             // The update to the map is done here:
-            var logElem = document.querySelector(".log");
-            logElem.innerHTML = lat + ": " + lon;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    var logElem = document.querySelector(".log");
+                    logElem.innerHTML = lat + ": " + lon + " //" + al + "/" + velocity + units + "/ " + xhr.responseText;
+                    console.log("ok")
+                }
+            }
+            xhr.open('GET', 'https://nominatim.openstreetmap.org/reverse?format=xml&lat=' + lat + '&lon=' + lon + '&zoom=18&addressdetails=1', true);
+            xhr.send(null);
+
+
 
             iss.setLatLng([lat, lon]);
             isscirc.setLatLng([lat, lon]);

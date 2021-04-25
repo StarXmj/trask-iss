@@ -4,7 +4,10 @@
 <head>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js">
+    <script src="dist/InstagramFeed.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+
+
     </script>
 
     <style>
@@ -17,44 +20,35 @@
 </head>
 
 <body>
-    <div id="map"></div>
+    <br>
 
+    <div class="container">
+        <div id="instagram-feed-demo" class="instagram_feed"></div>
+    </div>
+
+    <script src="https://www.jqueryscript.net/demo/Instagram-Photos-Without-API-instagramFeed/jquery.instagramFeed.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>
-        var map = L.map('map').setView([0, 0], 2);
-
-
-
-        function moveISS() {
-            $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function(data) {
-                var lat = data['iss_position']['latitude'];
-                var lon = data['iss_position']['longitude'];
-
-                // See leaflet docs for setting up icons and map layers
-                // The update to the map is done here:
-
-
-                iss.setLatLng([lat, lon]);
-                isscirc.setLatLng([lat, lon]);
-
+        (function($) {
+            $(window).on('load', function() {
+                $.instagramFeed({
+                    'username': 'callofduty',
+                    'container': "#instagram-feed-demo",
+                    'display_profile': true,
+                    'display_biography': true,
+                    'display_gallery': true,
+                    'get_raw_json': false,
+                    'callback': null,
+                    'styling': true,
+                    'items': 36,
+                    'items_per_row': 6,
+                    'margin': 0.3
+                });
             });
-            setTimeout(moveISS, 500);
-        }
-
-        L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
-            maxZoom: 10,
-        }).addTo(map);
-
-        var iss = L.marker([0, 0]).addTo(map);
-        var isscirc = L.circle([0, 0], 2200e3, {
-            color: "#c22",
-            opacity: 0.3,
-            weight: 1,
-            fillColor: "#c22",
-            fillOpacity: 0.1
-        }).addTo(map);
-
-        moveISS();
+        })(jQuery);
     </script>
+
+    <br></br>
 
 </body>
 
