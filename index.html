@@ -41,7 +41,8 @@
 
             // See leaflet docs for setting up icons and map layers
             // The update to the map is done here:
-
+            var logElem = document.querySelector(".log");
+            logElem.innerHTML = lat + ": " + lon;
 
             iss.setLatLng([lat, lon]);
             isscirc.setLatLng([lat, lon]);
