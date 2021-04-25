@@ -35,7 +35,7 @@
 
 
     function moveISS() {
-        $.getJSON('https://api.wheretheiss.at/v1/satellites/25544', function(data) {
+        $.getJSON('', function(data) {
             var lat = data['latitude'];
             var lon = data['longitude'];
 
@@ -47,7 +47,7 @@
             isscirc.setLatLng([lat, lon]);
 
         });
-        setTimeout(moveISS, 600);
+        setTimeout(moveISS, 1001);
     }
 
     L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
