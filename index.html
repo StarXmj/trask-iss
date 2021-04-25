@@ -35,7 +35,7 @@
 
 
     function moveISS() {
-        $.getJSON('', function(data) {
+        $.getJSON('https://api.wheretheiss.at/v1/satellites/25544', function(data) {
             var lat = data['latitude'];
             var lon = data['longitude'];
 
