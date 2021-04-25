@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+
     <title>Document</title>
     <style>
         #map {
@@ -26,7 +26,7 @@
 
     <div id="map"></div>
 
-
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 </body>
 
 <script>
@@ -47,11 +47,12 @@
             isscirc.setLatLng([lat, lon]);
 
         });
-        setTimeout(moveISS, 500);
+        setTimeout(moveISS, 600);
     }
 
     L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
         maxZoom: 10,
+        minZoom: 1.5,
     }).addTo(map);
 
     var iss = L.marker([0, 0]).addTo(map);
@@ -65,6 +66,7 @@
 
     moveISS();
 </script>
+
 
 
 </html>
