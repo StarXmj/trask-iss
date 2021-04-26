@@ -77,10 +77,9 @@ function moveISS() {
 
         iss.setLatLng([lat, lon]);
         isscirc.setLatLng([lat, lon]);
-        map.fitBounds(iss);
 
     });
-    setTimeout(moveISS, 1050);
+    setTimeout(moveISS, 1300);
 }
 
 function link() {
