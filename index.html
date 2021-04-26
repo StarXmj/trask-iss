@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://unpkg.com/leaflet"></script>
+    <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+
     <title>Document</title>
-    <style>
-        #map {
-            margin: 0 auto;
-            height: 500px;
-            width: 800px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -23,64 +21,18 @@
     <iframe width="480" height="270" src="https://ustream.tv/embed/9408562" allow="autoplay" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
     <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
     <div class="log"></div>
-
+    <div id="div_id"></div>
+    <div id="div_id2"></div>
+    <button onclick="link()">lol</button>
     <div id="map"></div>
 
 
+
+
+
 </body>
+<script src="app.js"></script>
 
-<script>
-    var map = L.map('map').setView([0, 0], 2);
-
-
-
-    function moveISS() {
-        $.getJSON('https://api.wheretheiss.at/v1/satellites/25544', function(data) {
-            var lat = data['latitude'];
-            var lon = data['longitude'];
-            var al = data['altitude'];
-            var velocity = data['velocity']
-            var units = data['units'];
-
-
-            // See leaflet docs for setting up icons and map layers
-            // The update to the map is done here:
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == XMLHttpRequest.DONE) {
-                    var logElem = document.querySelector(".log");
-                    logElem.innerHTML = lat + ": " + lon + " //" + al + "/" + velocity + units + "/ " + xhr.responseText;
-                    console.log("ok")
-                }
-            }
-            xhr.open('GET', 'https://nominatim.openstreetmap.org/reverse?format=xml&lat=' + lat + '&lon=' + lon + '&zoom=18&addressdetails=1', true);
-            xhr.send(null);
-
-
-
-            iss.setLatLng([lat, lon]);
-            isscirc.setLatLng([lat, lon]);
-
-        });
-        setTimeout(moveISS, 1001);
-    }
-
-    L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
-        maxZoom: 10,
-        minZoom: 1.5,
-    }).addTo(map);
-
-    var iss = L.marker([0, 0]).addTo(map);
-    var isscirc = L.circle([0, 0], 2200e3, {
-        color: "#c22",
-        opacity: 0.3,
-        weight: 1,
-        fillColor: "#c22",
-        fillOpacity: 0.1
-    }).addTo(map);
-
-    moveISS();
-</script>
 
 
 </html>
