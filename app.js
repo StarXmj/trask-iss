@@ -1,27 +1,3 @@
-function state(s) {
-    var dict = new Object();
-
-    // or the shorthand way
-    var dict = [
-        "us-ak", "us-al", "us-ar", "us-az", "us-ca", "us-co", "us-ct", "us-de", "us-fl", "us-ga",
-        "us-hi", "us-ia", "us-id", "us-il", "us-in", "us-ks", "us-ky", "us-la", "us-ma", "us-md", "us-me",
-        "us-mi", "us-mn", "us-mo", "us-ms", "us-mt", "us-nc", "us-nd", "us-ne", "us-nh", "us-nj",
-        "us-nm", "us-nv", "us-ny", "us-oh", "us-ok", "us-or", "us-pa", "us-ri", "us-sc", "us-sd", "us-tn", "us-tx",
-        "us-ut", "us-va", "us-vt", "us-wa", "us-wi", "us-wv", "us-wy",
-    ];
-
-    var dict2 = [
-        "Alaska", "Alabama", "Arkansas", "Arizona", "Californie", "Colorado", "Connecticut",
-        "Delaware", "Floride", "Géorgie", "Hawaï", "Iowa", "Idaho", "Illinois", "Indiana",
-        "Kansas", "Kentucky", "Louisiane", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota",
-        "Missouri", "Mississippi", "Montana", "Caroline du Nord", "Dakota du Nord", "Nebraska", "New Hampshire",
-        "New Jersey", "Nouveau-Mexique", "Nevada", "New York", "Ohio", "Oklahoma",
-        "Oregon", "Pennsylvanie", "Rhode Island", "Caroline du Sud", "Dakota du Sud", "Tennessee", "Texas", "Utah", "Virginie", "Vermont", "Washington", "Wisconsin",
-        "Virginie-Occidentale", "Wyoming",
-    ];
-    return (dict[dict2.indexOf(s)])
-}
-
 var map = L.map('map').setView([0, 0], 2);
 
 function moveISS() {
@@ -41,19 +17,22 @@ function moveISS() {
             var error = data['error']
             var p = ""
             var link = ""
+            var icon = ""
             if (error == "Unable to geocode") {
                 var link = "https://www.google.fr/search?q=" + lat + "," + lon;
                 var city = "Ocean"
-                document.getElementById("div_id").style.backgroundImage = "url('International_Flag_of_Planet_Earth.png')";
+                var icon = "url('International_Flag_of_Planet_Earth.png')"
+
             } else {
 
                 var city = data['display_name'];
                 var link = "https://www.google.fr/search?q=" + city;
                 var p = data['address']['country_code']
-                document.getElementById("div_id").style.backgroundImage = "url('https://flagcdn.com/112x84/" + p + ".png')";
+                var icon = "url('https://flagcdn.com/112x84/" + p + ".png')"
+
 
             }
-
+            document.getElementById("div_id").style.backgroundImage = icon;
 
             var logElem = document.querySelector(".log");
 
@@ -94,7 +73,9 @@ L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx
 }).addTo(map);
 var terminator = L.terminator({
 
-    fillOpacity: 0.2
+    fillOpacity: 0.25,
+    weight: 1,
+    color: '#1A1B1C',
 
 
 }).addTo(map);
@@ -102,8 +83,14 @@ setInterval(function() {
     terminator.setTime();
 }, 500); // Every minute
 
+var greenIcon = L.icon({
+    iconUrl: 'th.png',
 
-var iss = L.marker([0, 0]).addTo(map);
+
+    iconSize: [50, 55], // size of the icon
+
+});
+var iss = L.marker([0, 0], { icon: greenIcon }).addTo(map);
 var isscirc = L.circle([0, 0], 2200e3, {
     color: "#c22",
     opacity: 0.3,
