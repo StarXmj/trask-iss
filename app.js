@@ -7,6 +7,8 @@ function moveISS() {
         var al = data['altitude'];
         var velocity = data['velocity']
         var units = data['units'];
+        var visibility = data['visibility'];
+
 
 
         // See leaflet docs for setting up icons and map layers
@@ -21,27 +23,45 @@ function moveISS() {
             if (error == "Unable to geocode") {
                 var link = "https://www.google.fr/search?q=" + lat + "," + lon;
                 var city = "Ocean"
-                var icon = "url('International_Flag_of_Planet_Earth.png')"
+                var icon = 'International_Flag_of_Planet_Earth.png'
+
+            } else if (visibility === "eclipsed") {
+                document.body.style.background = "#292F33";
+
+
+
+
+            } else if (visibility === "daylight") {
+                document.body.style.background = "red";
 
             } else {
 
                 var city = data['display_name'];
                 var link = "https://www.google.fr/search?q=" + city;
                 var p = data['address']['country_code']
-                var icon = "url('https://flagcdn.com/112x84/" + p + ".png')"
+                var icon = 'https://flagcdn.com/112x84/' + p + '.png'
 
 
             }
-            document.getElementById("div_id").style.backgroundImage = icon;
+
+            document.getElementById("div_id").style.backgroundImage = "url(" + icon + ")";
 
             var logElem = document.querySelector(".log");
 
 
 
 
-            logElem.innerHTML = lat + ": " + lon + " //" + al + "/" + velocity + units +
-                "/ " + city + " ^^" + link.link(link, 'target_blank');
+            logElem.innerHTML = lat + ": " + lon + " //" + al + "/" + velocity + "  " + units +
+                "/ " + city.link(link, 'target_blank') + "  " + visibility;
             console.log("ok")
+
+            var north = L.control({ position: "topright" });
+            north.onAdd = function(map) {
+                var div = L.DomUtil.create("div", "info legend");
+                div.innerHTML = '<img src="' + icon + '">';
+                return div;
+            }
+            north.addTo(map);
 
 
 
@@ -72,7 +92,16 @@ function link() {
 L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
     maxZoom: 25,
     minZoom: 1.5,
+    maxBoundsViscosity: 1.0,
 }).addTo(map);
+var southWest = L.latLng(-180, -250),
+    northEast = L.latLng(180, 250);
+var bounds = L.latLngBounds(southWest, northEast);
+
+map.setMaxBounds(bounds);
+map.on('drag', function() {
+    map.panInsideBounds(bounds, { animate: false });
+});
 var terminator = L.terminator({
 
     fillOpacity: 0.25,
