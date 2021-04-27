@@ -25,15 +25,6 @@ function moveISS() {
                 var city = "Ocean"
                 var icon = 'International_Flag_of_Planet_Earth.png'
 
-            } else if (visibility === "eclipsed") {
-                document.body.style.background = "#292F33";
-
-
-
-
-            } else if (visibility === "daylight") {
-                document.body.style.background = "red";
-
             } else {
 
                 var city = data['display_name'];
