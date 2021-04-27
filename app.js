@@ -37,6 +37,8 @@ function moveISS() {
             var logElem = document.querySelector(".log");
 
 
+
+
             logElem.innerHTML = lat + ": " + lon + " //" + al + "/" + velocity + units +
                 "/ " + city + " ^^" + link.link(link, 'target_blank');
             console.log("ok")
