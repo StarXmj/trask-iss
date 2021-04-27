@@ -112,7 +112,7 @@ var terminator = L.terminator({
 }).addTo(map);
 setInterval(function() {
     terminator.setTime();
-}, 500); // Every minute
+}, 1); // Every minute
 
 var greenIcon = L.icon({
     iconUrl: 'th.png',
