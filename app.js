@@ -1,4 +1,4 @@
-var map = L.map('map').setView([0, 0], 2);
+var map = L.map('map').setView([0, 0], 1.5);
 
 function moveISS() {
     $.getJSON('https://api.wheretheiss.at/v1/satellites/25544', function(data) {
@@ -46,13 +46,7 @@ function moveISS() {
                 "/ " + city.link(link, 'target_blank') + "  " + visibility;
             console.log("ok")
 
-            var north = L.control({ position: "topright" });
-            north.onAdd = function(map) {
-                var div = L.DomUtil.create("div", "info legend");
-                div.innerHTML = '<img src="' + icon + '">';
-                return div;
-            }
-            north.addTo(map);
+
 
 
 
@@ -65,28 +59,34 @@ function moveISS() {
 
 
         });
+        if (document.getElementById("huey").checked == true) {
+            var slider = document.getElementById("myRange");
+            map.setView([lat, lon], slider.value);
+
+        } else {
+            console.log("ok")
+        }
+
+
 
 
         iss.setLatLng([lat, lon]);
         isscirc.setLatLng([lat, lon]);
 
+
     });
     setTimeout(moveISS, 1300);
 }
 
-function link() {
-    window.open(link, '_blank');
-}
 
 
-
-L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
+L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=ZiYmBKmhzCx2qFTlCuIU', {
     maxZoom: 25,
     minZoom: 1.5,
     maxBoundsViscosity: 1.0,
 }).addTo(map);
-var southWest = L.latLng(-180, -250),
-    northEast = L.latLng(180, 250);
+var southWest = L.latLng(-280, -360),
+    northEast = L.latLng(280, 360);
 var bounds = L.latLngBounds(southWest, northEast);
 
 map.setMaxBounds(bounds);
@@ -124,3 +124,12 @@ var isscirc = L.circle([0, 0], 2200e3, {
 
 
 moveISS();
+
+var grayscale = L.tileLayer(mapboxUrl, { id: 'https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution }),
+    streets = L.tileLayer(mapboxUrl, { id: 'https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=ZiYmBKmhzCx2qFTlCuIU', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution });
+
+var map = L.map('map', {
+
+    zoom: 10,
+    layers: [grayscale, cities]
+});
