@@ -37,7 +37,9 @@ var baseMaps = {
     "Black": black
 };
 
+
 L.control.layers(baseMaps).addTo(map);
+
 
 
 function moveISS() {
@@ -86,6 +88,13 @@ function moveISS() {
                 "/ " + city.link(link, 'target_blank') + "  " + visibility;
             console.log("ok")
 
+            $('#some_id').click(function() {
+
+                window.open(link, 'target_blank');
+            });
+
+
+
 
 
 
@@ -100,11 +109,13 @@ function moveISS() {
 
         });
         if (document.getElementById("huey").checked == true) {
-            var slider = document.getElementById("myRange");
-            map.setView([lat, lon], slider.value);
+
+            map.setView([lat, lon], map.getZoom());
+
 
         } else {
             console.log("ok")
+
         }
 
 
@@ -163,3 +174,35 @@ var isscirc = L.circle([0, 0], 2200e3, {
 
 
 moveISS();
+
+$('#toggle_fullscreen').on('click', function() {
+    // if already full screen; exit
+    // else go fullscreen
+    if (
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement
+    ) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    } else {
+        element = $('#maps').get(0);
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
+    }
+});
