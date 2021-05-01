@@ -1,73 +1,273 @@
-body {
-    position: relative;
-}
-
-#map {
-    margin: 0 auto;
-    height: 90vh;
-    width: 95%;
-    z-index: 4;
-}
-
-#maps {
-    margin: 0 auto;
-    height: 100vh;
-    width: 95%;
-    z-index: 4;
-}
-
-#div_id {
-    height: 84px;
-    width: 112px;
-    position: absolute;
-    margin-top: 100px;
-    margin-left: 1300px;
-    z-index: 5;
-}
-
-#huey {
-    height: 30px;
-    width: 30px;
-    position: absolute;
-    margin-top: 100px;
-    margin-left: 5.75vw;
-    z-index: 5;
-}
-
-#i-creation {
-    margin: 0 auto;
-    height: 84px;
-    width: 112px;
-}
-
-#wrapper {
-    width: 750px;
-    margin: 0 auto;
-    height: 625px;
-}
-
-.slick-prev {
-    height: 50px;
-    width: 50px;
-    left: -70px;
-    transition: .3s;
-}
-
-.slick-prev:hover {
-    opacity: 0.8;
-    height: 45px;
-    width: 45px;
-}
-
-.slick-next {
-    height: 50px;
-    width: 50px;
-    right: -70px;
-    transition: .3s;
-}
-
-.slick-next:hover {
-    opacity: 0.8;
-    height: 45px;
-    width: 45px;
-}
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav.primary-navigation {
+        margin: 0 auto;
+        display: block;
+        padding: 120px 0 0 0;
+        font-size: 16px;
+    }
+    
+    nav.primary-navigation ul li {
+        list-style: none;
+        margin: 0 auto;
+        display: inline-block;
+        padding: 0 30px;
+        position: relative;
+        text-decoration: none;
+        text-align: center;
+        font-family: arvo;
+    }
+    
+    nav.primary-navigation li a {
+        color: white;
+    }
+    
+    nav.primary-navigation li a:hover {
+        color: #3ca0e7;
+    }
+    
+    nav.primary-navigation li:hover {
+        cursor: pointer;
+    }
+    
+    nav.primary-navigation ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        padding-left: 0;
+        left: 0;
+        display: none;
+        background: white;
+    }
+    
+    nav.primary-navigation ul li:hover>ul,
+    nav.primary-navigation ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+        min-width: 250px;
+        text-align: left;
+        padding-top: 20px;
+        box-shadow: 0px 3px 5px -1px #ccc;
+    }
+    
+    nav.primary-navigation ul li ul li {
+        clear: both;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 20px;
+        border-style: none;
+    }
+    
+    nav.primary-navigation ul li ul li a:hover {
+        padding-left: 10px;
+        border-left: 2px solid #3ca0e7;
+        transition: all 0.3s ease;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #3CA0E7;
+    }
+    
+    ul li ul li a {
+        transition: all 0.5s ease;
+    }
+    
+    #map {
+        margin: 0 auto;
+        height: 90vh;
+        width: 95%;
+        z-index: 4;
+    }
+    
+    #maps {
+        margin: 0 auto;
+        height: 100vh;
+        width: 95%;
+        z-index: 4;
+    }
+    
+    ul {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 5vw;
+        list-style-type: none;
+    }
+    
+    li {
+        margin-left: 5vw;
+        display: inline-block;
+        /*pour IE*/
+    }
+    
+    #div_id {
+        height: 84px;
+        width: 112px;
+        position: absolute;
+        margin: 1vw;
+        z-index: 5;
+    }
+    
+    .info {
+        margin: -50px auto;
+        width: 95%;
+        background-color: whitesmoke;
+        height: 200px;
+        z-index: 5;
+    }
+    
+    .city {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 15vw;
+        width: 18vw;
+    }
+    
+    .lat {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 25vw;
+        width: 18vw;
+    }
+    
+    .lon {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 35vw;
+        width: 18vw;
+    }
+    
+    .km {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 45vw;
+        width: 18vw;
+    }
+    
+    .alt {
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 55vw;
+        width: 18vw;
+    }
+    
+    .info #toggle_fullscreen {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        margin-top: 160px;
+        margin-left: 80vw;
+    }
+    
+    #huey {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        margin-top: 100px;
+        margin-left: 5.75vw;
+        z-index: 5;
+    }
+    
+    #i-creation {
+        margin: 0 auto;
+        height: 84px;
+        width: 112px;
+    }
+    
+    #wrapper {
+        width: 750px;
+        margin: 0 auto;
+        height: 625px;
+    }
+    
+    .slick-prev {
+        height: 50px;
+        width: 50px;
+        left: -70px;
+        transition: .3s;
+    }
+    
+    .slick-prev:hover {
+        opacity: 0.8;
+        height: 45px;
+        width: 45px;
+    }
+    
+    .slick-next {
+        height: 50px;
+        width: 50px;
+        right: -70px;
+        transition: .3s;
+    }
+    
+    .slick-next:hover {
+        opacity: 0.8;
+        height: 45px;
+        width: 45px;
+    }
+    
+    .counter {
+        width: 100vw;
+        background: url('img/bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        position: relative;
+        text-align: center;
+    }
+    
+    .con {
+        border: white solid 1px;
+        padding: 50px;
+        color: white;
+        font-size: 75px;
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    
+    .vidéo {
+        text-align: center;
+        height: 100vh;
+    }
+    
+    .vidéo iframe {
+        padding: 5px;
+        margin-top: 45vh;
+        /* poussé de la moitié de hauteur de viewport */
+        transform: translateY(-50%);
+    }
+    
+    .photo {
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .photo img {
+        width: 90%;
+        max-width: 90%;
+    }
+    
+    .nasa {
+        text-align: center;
+        height: 100vh;
+        width: 90%;
+    }
+    
+    .nasa iframe {
+        text-align: center;
+        margin-top: 50vh;
+        /* poussé de la moitié de hauteur de viewport */
+        transform: translateY(-50%);
+    }

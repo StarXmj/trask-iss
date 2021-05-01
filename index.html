@@ -19,28 +19,85 @@
 </head>
 
 <body>
-    <iframe src="https://isstracker.spaceflight.esa.int/" width="625" height="350" frameborder="0" scrolling="no" allowfullscreen></iframe>
-    <iframe width="480" height="270" src="https://ustream.tv/embed/9408562" allow="autoplay" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
-    <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
-    <div class="log"></div>
 
-    <button id="some_id">Visit Page Now</button>
-    <button id="toggle_fullscreen">grow</button>
+
+    <div class="counter">
+        <nav role="navigation" class="primary-navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Work &dtrif;</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Illustration</a></li>
+                        <li><a href="#">Iconography</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <span class="con"></span>
+
+    </div>
+
+    <!--<iframe src="https://isstracker.spaceflight.esa.int/" width="625" height="350" frameborder="0" scrolling="no" allowfullscreen></iframe>-->
+    <div class="vidéo">
+        <iframe width="45%" height="350px" src="https://ustream.tv/embed/9408562" allow="autoplay" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+        <iframe width="45%" height="350px" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe>
+    </div>
+
+
+
+
 
     <div id="maps">
-        <div id="div_id"></div>
         <input type="checkbox" id="huey" name="drone">
         <div id="map"></div>
+        <div class="info">
+            <ul>
+                <li>Drapeau</li>
+                <li>Lieux</li>
+                <li>Latitude</li>
+                <li>Longitude</li>
+                <li>Vitesse</li>
+                <li>Altitude</li>
+            </ul>
+            <div id="div_id"></div>
+            <span class="city"></span>
+            <button id="some_id">Visit Page Now</button>
+            <span class="lat"></span>
+            <span class="lon"></span>
+            <span class="km"></span>
+            <span class="alt"></span>
+            <button id="toggle_fullscreen">
+              
+            </button>
+
+
+        </div>
+
+
 
 
     </div>
 
     <br>
-    <a data-flickr-embed="true" data-context="true" href="https://www.flickr.com/photos/72168594@N04" title=""><img src="https://live.staticflickr.com/65535/51147358264_b2df8589a3_z.jpg" width="90%" height="800px" alt=""></a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class='photo'>
+        <a data-flickr-embed="true" data-context="true" href="https://www.flickr.com/photos/72168594@N04" title=""><img src="https://live.staticflickr.com/65535/51147358264_b2df8589a3_z.jpg" width="80%" height="600px" alt=""></a>
+
+    </div>
     <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
     <br>
     <br>
-    <iframe width="100%" height="600px" src="https://livemap.getwemap.com/embed.html?emmid=3120&token=8VZNQ7UVQ0RVR2M3QXYCKMQT9" frameborder="0" style="max-width:100%" allowfullscreen allowtransparency allow="geolocation; camera; accelerometer; gyroscope; magnetometer; fullscreen"></iframe>
+    <!--<iframe width="100%" height="600px" src="https://livemap.getwemap.com/embed.html?emmid=3120&token=8VZNQ7UVQ0RVR2M3QXYCKMQT9" frameborder="0" style="max-width:100%" allowfullscreen allowtransparency allow="geolocation; camera; accelerometer; gyroscope; magnetometer; fullscreen"></iframe>-->
     <br>
     <br>
     <div class="img-area" id="wrapper">
@@ -54,8 +111,9 @@
     </div>
     <br>
     <br>
-    <iframe width="900" height="506" src="https://www.youtube.com/embed/21X5lGlDOfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <div class="nasa">
+        <iframe width="900" height="506" src="https://www.youtube.com/embed/21X5lGlDOfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
     <script>
@@ -76,7 +134,7 @@
         });
     </script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <p>upadate: 01/05/2021 10:00</p>
+    <p>upadate: 01/05/2021 22:45</p>
 
 
 </body>

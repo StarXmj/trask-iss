@@ -48,8 +48,8 @@ function moveISS() {
         var lon = data['longitude'];
         var al = data['altitude'];
         var velocity = data['velocity']
-        var units = data['units'];
-        var visibility = data['visibility'];
+
+
 
 
 
@@ -79,13 +79,17 @@ function moveISS() {
 
             document.getElementById("div_id").style.backgroundImage = "url(" + icon + ")";
 
-            var logElem = document.querySelector(".log");
 
 
 
 
-            logElem.innerHTML = lat + ": " + lon + " //" + al + "/" + velocity + "  " + units +
-                "/ " + city.link(link, 'target_blank') + "  " + visibility;
+
+            document.querySelector(".city").innerHTML = "lon \n m " + city;
+            document.querySelector(".lat").innerHTML = lat;
+            document.querySelector(".lon").innerHTML = lon;
+            document.querySelector(".km").innerHTML = velocity;
+            document.querySelector(".alt").innerHTML = al;
+
             console.log("ok")
 
             $('#some_id').click(function() {
@@ -206,3 +210,35 @@ $('#toggle_fullscreen').on('click', function() {
         }
     }
 });
+
+function dateDiff(date1, date2) {
+    var diff = {}
+    var tmp = date2 - date1;
+
+    tmp = Math.floor(tmp / 1000);
+    diff.sec = tmp % 60;
+
+    tmp = Math.floor((tmp - diff.sec) / 60);
+    diff.min = tmp % 60;
+
+    tmp = Math.floor((tmp - diff.min) / 60);
+    diff.hour = tmp % 24;
+
+    tmp = Math.floor((tmp - diff.hour) / 24);
+    diff.day = tmp;
+
+    return diff;
+}
+
+function con() {
+
+    date1 = new Date('1998-11-20 07:20:00');
+    date2 = new Date();
+    diff = dateDiff(date1, date2);
+    document.querySelector(".con").innerHTML = diff.day + " : " + diff.hour + " : " + diff.min + " : " + diff.sec;
+
+}
+
+
+
+setInterval(con, 500);

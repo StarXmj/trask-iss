@@ -1,47 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentlol</title>
 </head>
-<style>
-    html,
-    body {
-        height: 100%
-    }
-</style>
 
 <body>
-    <div id="map" style="width:100%; height:90%"></div>
+
+    <div class="con"></div>
+
+
+
+
+
 </body>
 
-</html>
-<script type="text/javascript">
-    var grayscale = L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=ZiYmBKmhzCx2qFTlCuIU', {
-            id: 'MapID',
-            tileSize: 512,
-            zoomOffset: -1,
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-        }),
-        streets = L.tileLayer('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=ZiYmBKmhzCx2qFTlCuIU', {
-            id: 'MapID',
-            tileSize: 512,
-            zoomOffset: -1,
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-        });
+<script>
+    function dateDiff(date1, date2) {
+        var diff = {}
+        var tmp = date2 - date1;
 
-    var map = L.map('map', {
-        center: [0, 0],
-        zoom: 1.5,
-        layers: [grayscale]
-    });
+        tmp = Math.floor(tmp / 1000);
+        diff.sec = tmp % 60;
 
-    var baseMaps = {
-        "Grayscales": grayscale,
-        "Streets": streets
-    };
+        tmp = Math.floor((tmp - diff.sec) / 60);
+        diff.min = tmp % 60;
 
-    L.control.layers(baseMaps).addTo(map);
+        tmp = Math.floor((tmp - diff.min) / 60);
+        diff.hour = tmp % 24;
+
+        tmp = Math.floor((tmp - diff.hour) / 24);
+        diff.day = tmp;
+
+        return diff;
+    }
+
+    function con() {
+
+        date1 = new Date('1998-11-20 07:20:00');
+        date2 = new Date();
+        diff = dateDiff(date1, date2);
+        document.querySelector(".con").innerHTML = " il y a " + diff.day + " jours, " + diff.hour + " heures, " + diff.min + " minutes et " + diff.sec + " secondes";
+
+    }
+
+
+
+    setInterval(con, 500);
 </script>
+
+</html>
