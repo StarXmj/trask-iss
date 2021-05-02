@@ -1,55 +1,245 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentlol</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script async="" src="https://widgets.flickr.com/embedr/embedr-47ad26da5deade67d472950b12c94b6c.js"></script>
+    <script async="" src="https://embedr.flickr.com/assets/embedr-loader.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="https://unpkg.com/leaflet"></script>
+    <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script charset="utf-8" src="https://platform.twitter.com/js/moment~timeline.bcb1cafa923482f4826e32741fe16a98.js"></script>
+    <script charset="utf-8" src="https://platform.twitter.com/js/timeline.28ecda9667eeb8e1b18898b99fee6c31.js"></script>
 </head>
 
 <body>
 
-    <div class="con"></div>
+
+    <div class="counter">
+        <nav role="navigation" class="primary-navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Work ▾</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Illustration</a></li>
+                        <li><a href="#">Iconography</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <span class="con">8199 : 9 : 34 : 26</span>
+
+    </div>
+
+    <!--<iframe src="https://isstracker.spaceflight.esa.int/" width="625" height="350" frameborder="0" scrolling="no" allowfullscreen></iframe>-->
+    <div class="vidéo">
+        <iframe width="45%" height="350px" src="https://ustream.tv/embed/9408562" allow="autoplay" scrolling="no" allowfullscreen="" webkitallowfullscreen="" frameborder="0" style="border: 0 none transparent;"></iframe>
+        <iframe width="45%" height="350px" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen="" webkitallowfullscreen="" frameborder="0" style="border: 0 none transparent;"></iframe>
+    </div>
 
 
 
 
 
+    <div id="maps">
+        <input type="checkbox" id="huey" name="drone">
+        <div id="map" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative;">
+            <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(238px, -289px, 0px);">
+                <div class="leaflet-pane leaflet-tile-pane">
+                    <div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                        <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(492px, 365px, 0px) scale(1);"><img alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/1/1.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-550px, -416px, 0px); opacity: 1;">
+                            <img
+                                alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/2/1.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-38px, -416px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/1/2.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-550px, 96px, 0px); opacity: 1;">
+                                <img
+                                    alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/2/2.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-38px, 96px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/0/1.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-1062px, -416px, 0px); opacity: 1;">
+                                    <img
+                                        alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/3/1.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(474px, -416px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/0/2.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(-1062px, 96px, 0px); opacity: 1;">
+                                        <img
+                                            alt="" role="presentation" src="https://api.maptiler.com/maps/basic/2/3/2.png?key=ZiYmBKmhzCx2qFTlCuIU" class="leaflet-tile leaflet-tile-loaded" style="width: 512px; height: 512px; transform: translate3d(474px, 96px, 0px); opacity: 1;"></div>
+                        <div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 17; transform: translate3d(-44px, 171px, 0px) scale(2);"></div>
+                    </div>
+                </div>
+                <div class="leaflet-pane leaflet-shadow-pane"></div>
+                <div class="leaflet-pane leaflet-overlay-pane"><svg pointer-events="none" class="leaflet-zoom-animated" width="1645" height="305" viewBox="-375 264 1645 305" style="transform: translate3d(-375px, 264px, 0px);"><g><path class="leaflet-interactive" stroke="#1A1B1C" stroke-opacity="0.5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#00" fill-opacity="0.3" fill-rule="evenodd" d="M1271 570L-376 570L-376 532L-365 569L597 570L664 334L687 263L1271 263z"></path><path class="leaflet-interactive" stroke="#c22" stroke-opacity="0.3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#c22" fill-opacity="0.1" fill-rule="evenodd" d="M892.8138079705145,544.251377925192a116,118 0 1,0 232,0 a116,118 0 1,0 -232,0 "></path></g></svg></div>
+                <div
+                    class="leaflet-pane leaflet-marker-pane"><img src="th.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -25px; margin-top: -27.5px; width: 50px; height: 55px; transform: translate3d(1009px, 539px, 0px); z-index: 539;"></div>
+            <div
+                class="leaflet-pane leaflet-tooltip-pane"></div>
+        <div class="leaflet-pane leaflet-popup-pane"></div>
+        <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1017.5px, 979px, 0px) scale(4);"></div>
+    </div>
+    <div class="leaflet-control-container">
+        <div class="leaflet-top leaflet-left">
+            <div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a></div>
+        </div>
+        <div class="leaflet-top leaflet-right">
+            <div class="leaflet-control-layers leaflet-control" aria-haspopup="true">
+                <a class="leaflet-control-layers-toggle" href="#" title="Layers"></a>
+                <section class="leaflet-control-layers-list">
+                    <div class="leaflet-control-layers-base"><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_44" checked="checked"><span> Normal</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_44"><span> Satellite</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_44"><span> Topographic</span></div></label><label><div><input type="radio" class="leaflet-control-layers-selector" name="leaflet-base-layers_44"><span> Black</span></div></label></div>
+                    <div
+                        class="leaflet-control-layers-separator" style="display: none;"></div>
+            <div class="leaflet-control-layers-overlays"></div>
+            </section>
+        </div>
+    </div>
+    <div class="leaflet-bottom leaflet-left"></div>
+    <div class="leaflet-bottom leaflet-right">
+        <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | <a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></div>
+    </div>
+    </div>
+    </div>
+    <div class="info">
+        <ul>
+            <li>Drapeau</li>
+            <li>Lieux</li>
+            <li>Latitude</li>
+            <li>Longitude</li>
+            <li>Vitesse</li>
+            <li>Altitude</li>
+        </ul>
+        <div id="div_id" style="background-image: url(&quot;International_Flag_of_Planet_Earth.png&quot;);"></div>
+        <span class="city">lon 
+ m Ocean</span>
+        <button id="some_id">Visit Page Now</button>
+        <span class="lat">-13.605861877314</span>
+        <span class="lon">97.525864682317</span>
+        <span class="km">27574.57009758</span>
+        <span class="alt">421.68227419211</span>
+        <button id="toggle_fullscreen">
+              
+            </button>
+
+
+    </div>
+
+
+
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="photo">
+        <iframe frameborder="0" allowfullscreen="" class="flickr-embed-frame" webkitallowfullscreen="" mozallowfullscreen="" oallowfullscreen="" msallowfullscreen="" width="1367" height="600" data-natural-width="640" data-natural-height="427" style="overflow: hidden; padding: 0px; margin: 0px; width: 1367px; height: 600px; max-width: 90%;"
+            data-loaded="true"></iframe>
+
+    </div>
+    <script async="" src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+    <br>
+    <br>
+    <!--<iframe width="100%" height="600px" src="https://livemap.getwemap.com/embed.html?emmid=3120&token=8VZNQ7UVQ0RVR2M3QXYCKMQT9" frameborder="0" style="max-width:100%" allowfullscreen allowtransparency allow="geolocation; camera; accelerometer; gyroscope; magnetometer; fullscreen"></iframe>-->
+    <br>
+    <br>
+    <div class="img-area slick-initialized slick-slider slick-dotted" id="wrapper"><img class="a-left control-c prev slick-prev slick-arrow" src="prev.png" style="">
+        <div class="slick-list draggable">
+            <div class="slick-track" style="opacity: 1; width: 4500px;">
+                <div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 750px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 750ms linear 0s;" role="tabpanel" id="slick-slide00" tabindex="-1"
+                    aria-describedby="slick-slide-control00">
+                    <div>
+                        <div style="width: 100%; display: inline-block;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 750px; height: 625px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                                data-widget-id="profile:Thom_astro" title="Twitter Timeline"></iframe></div>
+                    </div>
+                </div>
+                <div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 750px; position: relative; left: -750px; top: 0px; z-index: 998; opacity: 0; transition: opacity 750ms linear 0s;" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01"
+                    tabindex="-1">
+                    <div>
+                        <div style="width: 100%; display: inline-block;"><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 750px; height: 625px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                                data-widget-id="profile:Space_Station" title="Twitter Timeline"></iframe></div>
+                    </div>
+                </div>
+                <div class="slick-slide" data-slick-index="2" aria-hidden="true" style="width: 750px; position: relative; left: -1500px; top: 0px; z-index: 998; opacity: 0; transition: opacity 750ms linear 0s;" role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02"
+                    tabindex="-1">
+                    <div>
+                        <div style="width: 100%; display: inline-block;"><iframe id="twitter-widget-2" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 750px; height: 625px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                                data-widget-id="profile:NASA" title="Twitter Timeline"></iframe> </div>
+                    </div>
+                </div>
+                <div class="slick-slide" data-slick-index="3" aria-hidden="true" style="width: 750px; position: relative; left: -2250px; top: 0px; z-index: 998; opacity: 0; transition: opacity 750ms linear 0s;" role="tabpanel" id="slick-slide03" aria-describedby="slick-slide-control03"
+                    tabindex="-1">
+                    <div>
+                        <div style="width: 100%; display: inline-block;"><iframe id="twitter-widget-3" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 750px; height: 625px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                                data-widget-id="profile:ISS_Research" title="Twitter Timeline"></iframe></div>
+                    </div>
+                </div>
+                <div class="slick-slide slick-current slick-active" data-slick-index="4" aria-hidden="false" style="width: 750px; position: relative; left: -3000px; top: 0px; z-index: 999; opacity: 1;" role="tabpanel" id="slick-slide04" aria-describedby="slick-slide-control04">
+                    <div>
+                        <div style="width: 100%; display: inline-block;"><iframe id="twitter-widget-4" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 750px; height: 625px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                                data-widget-id="profile:ISS_CASIS" title="Twitter Timeline"></iframe></div>
+                    </div>
+                </div>
+                <div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 750px; position: relative; left: -3750px; top: 0px; z-index: 998; opacity: 0;" tabindex="-1" role="tabpanel" id="slick-slide05" aria-describedby="slick-slide-control05">
+                    <div>
+                        <div style="width: 100%; display: inline-block;"><iframe id="twitter-widget-5" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 750px; height: 625px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                                data-widget-id="profile:SpaceX" title="Twitter Timeline"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div><img class="a-right control-c next slick-next slick-arrow" src="next.png" style="">
+        <ul class="slick-dots" style="" role="tablist">
+            <li class="" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 6" tabindex="-1">1</button></li>
+            <li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 6" tabindex="-1">2</button></li>
+            <li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 6" tabindex="-1">3</button></li>
+            <li role="presentation" class=""><button type="button" role="tab" id="slick-slide-control03" aria-controls="slick-slide03" aria-label="4 of 6" tabindex="-1">4</button></li>
+            <li role="presentation" class="slick-active"><button type="button" role="tab" id="slick-slide-control04" aria-controls="slick-slide04" aria-label="5 of 6" tabindex="0" aria-selected="true">5</button></li>
+            <li role="presentation"><button type="button" role="tab" id="slick-slide-control05" aria-controls="slick-slide05" aria-label="6 of 6" tabindex="-1">6</button></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <div class="nasa">
+        <iframe width="900" height="506" src="https://www.youtube.com/embed/21X5lGlDOfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.img-area').slick({
+                dots: true,
+
+                arrows: true,
+                autoplay: true,
+                speed: 750,
+                fade: true,
+                cssEase: 'linear',
+
+                autoplaySpeed: 5000,
+                prevArrow: "<img class='a-left control-c prev slick-prev' src='prev.png'>",
+                nextArrow: "<img class='a-right control-c next slick-next' src='next.png'>"
+            })
+        });
+    </script>
+    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p>upadate: 01/05/2021 22:45</p>
+
+
+
+    <script src="app.js"></script>
+
+
+
+    <iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.06c6ee58c3810956b7509218508c7b56.html?origin=https%3A%2F%2Fissinformation.netlify.app" title="Twitter settings iframe" style="display: none;"></iframe>
+    <iframe
+        id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe"></iframe>
 </body>
-
-<script>
-    function dateDiff(date1, date2) {
-        var diff = {}
-        var tmp = date2 - date1;
-
-        tmp = Math.floor(tmp / 1000);
-        diff.sec = tmp % 60;
-
-        tmp = Math.floor((tmp - diff.sec) / 60);
-        diff.min = tmp % 60;
-
-        tmp = Math.floor((tmp - diff.min) / 60);
-        diff.hour = tmp % 24;
-
-        tmp = Math.floor((tmp - diff.hour) / 24);
-        diff.day = tmp;
-
-        return diff;
-    }
-
-    function con() {
-
-        date1 = new Date('1998-11-20 07:20:00');
-        date2 = new Date();
-        diff = dateDiff(date1, date2);
-        document.querySelector(".con").innerHTML = " il y a " + diff.day + " jours, " + diff.hour + " heures, " + diff.min + " minutes et " + diff.sec + " secondes";
-
-    }
-
-
-
-    setInterval(con, 500);
-</script>
 
 </html>

@@ -13,12 +13,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
 
+
+
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+
+    <div id="esa">
+        <button onclick="shut()">Visit Page Now</button>
+
+
+    </div>
 
 
     <div class="counter">
@@ -55,21 +63,31 @@
         <input type="checkbox" id="huey" name="drone">
         <div id="map"></div>
         <div class="info">
-            <ul>
-                <li>Drapeau</li>
-                <li>Lieux</li>
-                <li>Latitude</li>
-                <li>Longitude</li>
-                <li>Vitesse</li>
-                <li>Altitude</li>
+            <ul class="cal">
+                <li>
+                    Drapeau
+                    <br>
+                    <div id="div_id"></div>
+                </li>
+
+                <li>Lieux<br><br><span class="city"></span>
+                    <br>
+                    <button id="some_id">Visit Page Now</button>
             </ul>
-            <div id="div_id"></div>
-            <span class="city"></span>
-            <button id="some_id">Visit Page Now</button>
-            <span class="lat"></span>
-            <span class="lon"></span>
-            <span class="km"></span>
-            <span class="alt"></span>
+            <ul>
+
+                <li> Latitude<br><br><span class="lat"></span></li>
+                <li>Longitude<br><br><span class="lon"></span></li>
+                <li>Vitesse<br><br><span class="km"></span></li>
+                <li>Altitude<br><br><span class="alt"></span></li>
+            </ul>
+
+
+
+
+
+
+
             <button id="toggle_fullscreen">
               
             </button>
@@ -81,6 +99,8 @@
 
 
     </div>
+
+
 
     <br>
     <br>
@@ -134,7 +154,7 @@
         });
     </script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <p>upadate: 01/05/2021 22:45</p>
+    <p id="date">upadate: 02/05/2021 22:28</p>
 
 
 </body>

@@ -84,7 +84,7 @@ function moveISS() {
 
 
 
-            document.querySelector(".city").innerHTML = "lon \n m " + city;
+            document.querySelector(".city").innerHTML = city;
             document.querySelector(".lat").innerHTML = lat;
             document.querySelector(".lon").innerHTML = lon;
             document.querySelector(".km").innerHTML = velocity;
@@ -242,3 +242,15 @@ function con() {
 
 
 setInterval(con, 500);
+
+function shut() {
+    document.getElementById("esa").style.display = "none";
+
+}
+
+function open() {
+    if (document.getElementById("esa").style.display == "none") {
+        document.getElementById("esa").style.display = "block";
+    }
+
+}

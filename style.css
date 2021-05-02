@@ -98,26 +98,37 @@
     ul {
         position: absolute;
         margin-top: 10px;
-        margin-left: 5vw;
+        margin-left: 15vw;
         list-style-type: none;
     }
     
     li {
         margin-left: 5vw;
         display: inline-block;
+        text-align: center;
         /*pour IE*/
+    }
+    
+    .cal {
+        position: absolute;
+        list-style-type: none;
+        margin-top: 10px;
+        margin-left: inherit;
+        left: 0;
+    }
+    
+    .cal li {
+        margin-left: 3vw;
     }
     
     #div_id {
         height: 84px;
         width: 112px;
-        position: absolute;
-        margin: 1vw;
         z-index: 5;
     }
     
     .info {
-        margin: -50px auto;
+        margin: -0px auto;
         width: 95%;
         background-color: whitesmoke;
         height: 200px;
@@ -125,38 +136,13 @@
     }
     
     .city {
-        position: absolute;
-        margin-top: 50px;
-        margin-left: 15vw;
-        width: 18vw;
+        width: 5vw;
+        float: left;
     }
     
-    .lat {
+    .some_id {
         position: absolute;
-        margin-top: 50px;
-        margin-left: 25vw;
-        width: 18vw;
-    }
-    
-    .lon {
-        position: absolute;
-        margin-top: 50px;
-        margin-left: 35vw;
-        width: 18vw;
-    }
-    
-    .km {
-        position: absolute;
-        margin-top: 50px;
-        margin-left: 45vw;
-        width: 18vw;
-    }
-    
-    .alt {
-        position: absolute;
-        margin-top: 50px;
-        margin-left: 55vw;
-        width: 18vw;
+        text-align: center;
     }
     
     .info #toggle_fullscreen {
@@ -215,7 +201,7 @@
     }
     
     .counter {
-        width: 100vw;
+        width: 100%;
         background: url('img/bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -270,4 +256,21 @@
         margin-top: 50vh;
         /* poussé de la moitié de hauteur de viewport */
         transform: translateY(-50%);
+    }
+    
+    #esa {
+        display: none;
+        position: fixed;
+        width: 90vw;
+        height: 90vh;
+        background-color: black;
+        /* poussé de la moitié de hauteur de viewport */
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 50;
+    }
+    
+    #date {
+        width: 100px;
     }
