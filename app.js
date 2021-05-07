@@ -244,13 +244,6 @@ function con() {
 setInterval(con, 500);
 
 function shut() {
-    document.getElementById("esa").style.display = "none";
-
-}
-
-function open() {
-    if (document.getElementById("esa").style.display == "none") {
-        document.getElementById("esa").style.display = "block";
-    }
+    document.getElementById("popup1").style.display = "none";
 
 }
